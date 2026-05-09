@@ -1,13 +1,13 @@
 from flask import Flask, render_template, redirect, url_for
 from neo4j import GraphDatabase
 import folium
-import random
+import random 
 import os
 
 app = Flask(__name__)
 
-URI = "bolt://localhost:7687"
-USER = "neo4j"
+URI = os.getenv("NEO4J_URI")
+USER = os.getenv("NEO4J_USER")
 PASSWORD = os.getenv("NEO4J_PASSWORD")
 
 driver = GraphDatabase.driver(URI, auth=(USER, PASSWORD))
