@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_80ea64b8611abf3cfc0b292a02dd48bb {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_80ea64b8611abf3cfc0b292a02dd48bb" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_80ea64b8611abf3cfc0b292a02dd48bb = L.map(
+                "map_80ea64b8611abf3cfc0b292a02dd48bb",
+                {
+                    center: [20.0, 0.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 2,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_207fb303d5302efde502c5a5a5cbacb2 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_207fb303d5302efde502c5a5a5cbacb2.addTo(map_80ea64b8611abf3cfc0b292a02dd48bb);
+        
+    
+            var marker_5c645f9c23b6c9fca74c7160703e4ec9 = L.marker(
+                [19.4326, -99.1332],
+                {
+}
+            ).addTo(map_80ea64b8611abf3cfc0b292a02dd48bb);
+        
+    
+        var popup_8b51c78f4d06c36a50fc7bd24e1b3b75 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e542fc8b3b4830d51126b6f592f080cd = $(`<div id="html_e542fc8b3b4830d51126b6f592f080cd" style="width: 100.0%; height: 100.0%;">Juan - CDMX</div>`)[0];
+                popup_8b51c78f4d06c36a50fc7bd24e1b3b75.setContent(html_e542fc8b3b4830d51126b6f592f080cd);
+            
+        
+
+        marker_5c645f9c23b6c9fca74c7160703e4ec9.bindPopup(popup_8b51c78f4d06c36a50fc7bd24e1b3b75)
+        ;
+
+        
+    
+    
+            var marker_ea1dd567013cdf8d4366cd2e78a0a8d7 = L.marker(
+                [55.7558, 37.6173],
+                {
+}
+            ).addTo(map_80ea64b8611abf3cfc0b292a02dd48bb);
+        
+    
+        var popup_14bff0699ce77f9f582e395a7401f49c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_88f45fd16c08b8f9179073aa0aac5a40 = $(`<div id="html_88f45fd16c08b8f9179073aa0aac5a40" style="width: 100.0%; height: 100.0%;">Juan - Moscu</div>`)[0];
+                popup_14bff0699ce77f9f582e395a7401f49c.setContent(html_88f45fd16c08b8f9179073aa0aac5a40);
+            
+        
+
+        marker_ea1dd567013cdf8d4366cd2e78a0a8d7.bindPopup(popup_14bff0699ce77f9f582e395a7401f49c)
+        ;
+
+        
+    
+    
+            var marker_261a03e623a330797a8abf26dd7a6b3d = L.marker(
+                [19.4326, -99.1332],
+                {
+}
+            ).addTo(map_80ea64b8611abf3cfc0b292a02dd48bb);
+        
+    
+        var popup_4671e11a1aac5134592581c13fcdc85a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_370b043b15b348c6886574fe577ca5ff = $(`<div id="html_370b043b15b348c6886574fe577ca5ff" style="width: 100.0%; height: 100.0%;">Ana - CDMX</div>`)[0];
+                popup_4671e11a1aac5134592581c13fcdc85a.setContent(html_370b043b15b348c6886574fe577ca5ff);
+            
+        
+
+        marker_261a03e623a330797a8abf26dd7a6b3d.bindPopup(popup_4671e11a1aac5134592581c13fcdc85a)
+        ;
+
+        
+    
+    
+            var marker_e1d045a594d648a7cc918129579ac06d = L.marker(
+                [55.7558, 37.6173],
+                {
+}
+            ).addTo(map_80ea64b8611abf3cfc0b292a02dd48bb);
+        
+    
+        var popup_f89520b4be24723b1e7e6f4dc591ddcd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e82f92adcd23009aaf25efb5516a020d = $(`<div id="html_e82f92adcd23009aaf25efb5516a020d" style="width: 100.0%; height: 100.0%;">Ana - Moscu</div>`)[0];
+                popup_f89520b4be24723b1e7e6f4dc591ddcd.setContent(html_e82f92adcd23009aaf25efb5516a020d);
+            
+        
+
+        marker_e1d045a594d648a7cc918129579ac06d.bindPopup(popup_f89520b4be24723b1e7e6f4dc591ddcd)
+        ;
+
+        
+    
+</script>
+</html>
+            <div style="position: fixed; bottom: 20px; left: 20px; z-index:9999;">
+                <a href="/">
+                    <button style="padding:10px; font-size:16px;">⬅ Volver</button>
+                </a>
+            </div>
+            

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RodAegisGraph</title>
+    <style>
+        body { font-family: Arial; background: #111; color: white; text-align: center; }
+        h1 { color: #00ffcc; }
+        table { margin: auto; border-collapse: collapse; width: 60%; }
+        th, td { padding: 10px; border: 1px solid #444; }
+        th { background: #222; }
+        .sospechoso { background: #8b0000; } /* rojo */
+        button {
+            margin: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background: #00ffcc;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<h1>🚨 Sistema de Fraude</h1>
+
+<a href="/detectar">
+    <button>Detectar fraude</button>
+</a>
+<a href="/reiniciar">
+    <button>Reiniciar sistema</button>
+</a>
+<a href="/mapa">
+    <button>Ver mapa 🌍</button>
+</a>
+<a href="/simular">
+    <button>Simular transacción 💸</button>
+</a>
+
+<table>
+    <tr>
+        <th>Nombre</th>
+        <th>Riesgo</th>
+        <th>Sospechoso</th>
+    </tr>
+
+    {% for c in clientes %}
+    <tr class="{% if c.sospechoso %}sospechoso{% endif %}">
+        <td>{{ c.nombre }}</td>
+        <td>{{ c.riesgo }}</td>
+        <td>{{ c.sospechoso }}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+</body>
+</html>
