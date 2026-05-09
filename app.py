@@ -1,7 +1,7 @@
 from flask import Flask, render_template, redirect, url_for
 from neo4j import GraphDatabase
 import folium
-import random 
+import random
 import os
 
 app = Flask(__name__)
@@ -15,7 +15,7 @@ driver = GraphDatabase.driver(URI, auth=(USER, PASSWORD))
 # 🏠 HOME
 @app.route("/")
 def home():
-    with driver.session(database="fraud") as session:
+    with driver.session(database="11fa0c20") as session:
         result = session.run("""
         MATCH (c:Cliente)
         RETURN c.nombre AS nombre, c.riesgo AS riesgo, c.sospechoso AS sospechoso
@@ -30,7 +30,7 @@ def home():
 # 🔘 DETECTAR FRAUDE
 @app.route("/detectar")
 def detectar():
-    with driver.session(database="fraud") as session:
+    with driver.session(database="11fa0c20") as session:
 
         # 🔄 Reiniciar
         session.run("""
@@ -68,7 +68,7 @@ def detectar():
 # 🔄 REINICIAR
 @app.route("/reiniciar")
 def reiniciar():
-    with driver.session(database="fraud") as session:
+    with driver.session(database="11fa0c20") as session:
         session.run("""
         MATCH (c:Cliente)
         SET c.riesgo = 0.1
@@ -80,7 +80,7 @@ def reiniciar():
 # 🌍 MAPA
 @app.route("/mapa")
 def mapa():
-    with driver.session(database="fraud") as session:
+    with driver.session(database="11fa0c20") as session:
         result = session.run("""
         MATCH (c:Cliente)-[:USA]->(d:Dispositivo)-[:UBICADO_EN]->(u:Ubicacion)
         RETURN c.nombre AS nombre, u.ciudad AS ciudad, u.lat AS lat, u.lon AS lon
@@ -110,11 +110,12 @@ def mapa():
 
     return render_template("mapa.html")
 
+
 @app.route("/simular")
 def simular():
-    with driver.session(database="fraud") as session:
+    with driver.session(database="11fa0c20") as session:
 
-        monto = random.randint(30000, 100000)  # 💥 más alto = más sospechoso
+        monto = random.randint(30000, 100000)
 
         # 💸 Crear transacción
         session.run(f"""
@@ -148,7 +149,7 @@ def simular():
         SET c.riesgo = c.riesgo + 0.7
         """)
 
-        # 💸 NUEVO: riesgo por monto alto
+        # 💸 Riesgo por monto alto
         session.run("""
         MATCH (c:Cliente)-[:TIENE]->(cu:Cuenta)-[:ENVIA]->(t:Transaccion)
         WHERE t.monto > 10000
@@ -163,6 +164,7 @@ def simular():
         """)
 
     return redirect(url_for("home"))
+
 
 # 🚀 RUN
 if __name__ == "__main__":
