@@ -27,39 +27,116 @@ body{
     font-family:'Poppins',sans-serif;
 
     background:
-    linear-gradient(
-    135deg,
-    #050816,
-    #0f172a,
-    #111827);
+    radial-gradient(circle at top left,#1e1b4b,#0f172a 70%);
 
     color:white;
 
     min-height:100vh;
 
+    overflow-x:hidden;
+}
+
+/* FONDO */
+
+.bg{
+
+    position:fixed;
+
+    width:100%;
+
+    height:100%;
+
+    z-index:-1;
+
+    overflow:hidden;
+}
+
+.circle{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    filter:blur(80px);
+
+    opacity:0.25;
+}
+
+.c1{
+    width:300px;
+    height:300px;
+    background:#ff8fd8;
+    top:-50px;
+    left:-50px;
+}
+
+.c2{
+    width:250px;
+    height:250px;
+    background:#c084fc;
+    bottom:0;
+    right:0;
+}
+
+.c3{
+    width:200px;
+    height:200px;
+    background:#f9a8d4;
+    top:40%;
+    left:60%;
+}
+
+/* CONTENEDOR */
+
+.container{
+
+    width:95%;
+
+    max-width:1500px;
+
+    margin:auto;
+
     padding:30px;
 }
 
-/* TITULO */
+/* HEADER */
 
-h1{
+.header{
 
-    text-align:center;
+    display:flex;
 
-    font-size:50px;
+    justify-content:space-between;
 
-    margin-bottom:30px;
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    margin-bottom:40px;
+}
+
+.logo h1{
+
+    font-size:55px;
+
+    font-weight:700;
 
     background:
     linear-gradient(
     90deg,
-    #00ffcc,
-    #00aaff,
-    #8b5cf6);
+    #f9a8d4,
+    #f0abfc,
+    #c084fc);
 
     -webkit-background-clip:text;
 
     -webkit-text-fill-color:transparent;
+}
+
+.logo p{
+
+    opacity:0.7;
+
+    margin-top:5px;
 }
 
 /* BOTONES */
@@ -68,22 +145,18 @@ h1{
 
     display:flex;
 
-    justify-content:center;
-
     flex-wrap:wrap;
 
     gap:15px;
-
-    margin-bottom:35px;
 }
 
-button{
+.btn{
 
-    padding:12px 18px;
+    padding:14px 22px;
 
     border:none;
 
-    border-radius:15px;
+    border-radius:18px;
 
     font-size:14px;
 
@@ -93,23 +166,28 @@ button{
 
     color:white;
 
+    text-decoration:none;
+
     background:
     linear-gradient(
     135deg,
-    #06b6d4,
-    #3b82f6);
+    #f472b6,
+    #c084fc);
 
     transition:0.3s;
 
     box-shadow:
-    0 0 15px rgba(0,255,200,0.25);
+    0 0 20px rgba(244,114,182,0.35);
 }
 
-button:hover{
+.btn:hover{
 
     transform:
-    translateY(-4px)
+    translateY(-5px)
     scale(1.05);
+
+    box-shadow:
+    0 0 25px rgba(244,114,182,0.6);
 }
 
 /* DASHBOARD */
@@ -119,62 +197,141 @@ button:hover{
     display:grid;
 
     grid-template-columns:
-    repeat(auto-fit,minmax(220px,1fr));
+    repeat(auto-fit,minmax(240px,1fr));
 
-    gap:20px;
+    gap:25px;
 
     margin-bottom:40px;
 }
 
 .card{
 
+    position:relative;
+
+    overflow:hidden;
+
     background:
-    rgba(255,255,255,0.06);
+    rgba(255,255,255,0.07);
 
-    border-radius:25px;
+    border-radius:30px;
 
-    padding:25px;
+    padding:30px;
 
-    text-align:center;
+    border:1px solid rgba(255,255,255,0.10);
 
-    border:1px solid rgba(255,255,255,0.08);
-
-    backdrop-filter:blur(10px);
+    backdrop-filter:blur(15px);
 
     transition:0.3s;
 }
 
+.card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:120px;
+
+    height:120px;
+
+    background:
+    rgba(255,255,255,0.08);
+
+    border-radius:50%;
+
+    top:-40px;
+
+    right:-40px;
+}
+
 .card:hover{
 
-    transform:translateY(-6px);
+    transform:translateY(-8px);
 
     box-shadow:
-    0 0 20px rgba(0,255,200,0.15);
+    0 0 30px rgba(244,114,182,0.18);
 }
 
 .card h2{
 
-    font-size:40px;
+    font-size:45px;
 
-    color:#00ffcc;
+    color:#f9a8d4;
+
+    margin-bottom:10px;
 }
 
 .card p{
 
-    margin-top:10px;
-
     opacity:0.8;
+
+    font-size:15px;
+}
+
+/* CONTENIDO */
+
+.content{
+
+    display:grid;
+
+    grid-template-columns:
+    1fr 2fr;
+
+    gap:30px;
+
+    margin-bottom:40px;
+}
+
+@media(max-width:1000px){
+
+    .content{
+
+        grid-template-columns:1fr;
+    }
+}
+
+/* GRAFICA */
+
+.grafica{
+
+    background:
+    rgba(255,255,255,0.07);
+
+    border-radius:30px;
+
+    padding:25px;
+
+    border:1px solid rgba(255,255,255,0.10);
+
+    backdrop-filter:blur(14px);
+
+    box-shadow:
+    0 0 20px rgba(244,114,182,0.08);
 }
 
 /* FORM */
 
 .form-crear{
 
-    margin-bottom:30px;
+    background:
+    rgba(255,255,255,0.07);
 
-    display:flex;
+    border-radius:30px;
 
-    justify-content:center;
+    padding:25px;
+
+    border:1px solid rgba(255,255,255,0.10);
+
+    margin-bottom:35px;
+
+    backdrop-filter:blur(14px);
+}
+
+.form-crear h2{
+
+    margin-bottom:20px;
+
+    color:#f9a8d4;
 }
 
 .form-crear form{
@@ -184,41 +341,57 @@ button:hover{
     gap:15px;
 
     flex-wrap:wrap;
-
-    justify-content:center;
 }
 
 .form-crear input{
 
-    padding:14px;
+    flex:1;
+
+    min-width:240px;
+
+    padding:15px;
 
     border:none;
 
-    border-radius:15px;
+    border-radius:16px;
 
-    width:260px;
-
-    background:#1f2937;
+    background:#241b35;
 
     color:white;
 
     font-size:15px;
+
+    outline:none;
+
+    border:1px solid transparent;
+
+    transition:0.3s;
+}
+
+.form-crear input:focus{
+
+    border:1px solid #f9a8d4;
+
+    box-shadow:
+    0 0 15px rgba(249,168,212,0.3);
 }
 
 /* TABLA */
 
 .table-box{
 
+    background:
+    rgba(255,255,255,0.07);
+
+    border-radius:30px;
+
+    padding:25px;
+
+    border:1px solid rgba(255,255,255,0.10);
+
     overflow:auto;
 
-    border-radius:25px;
-
-    background:
-    rgba(255,255,255,0.05);
-
-    padding:20px;
-
-    border:1px solid rgba(255,255,255,0.08);
+    backdrop-filter:blur(14px);
 }
 
 table{
@@ -230,16 +403,18 @@ table{
 
 th{
 
-    background:#111827;
+    padding:18px;
 
-    padding:15px;
+    background:#241b35;
 
-    color:#00ffcc;
+    color:#f9a8d4;
+
+    font-size:15px;
 }
 
 td{
 
-    padding:14px;
+    padding:16px;
 
     text-align:center;
 
@@ -250,93 +425,141 @@ td{
 tr:hover{
 
     background:
-    rgba(255,255,255,0.05);
+    rgba(255,255,255,0.06);
 }
+
+/* FILA SOSPECHOSA */
 
 .sospechoso{
 
     background:
-    rgba(255,0,0,0.2);
+    rgba(255,105,180,0.12);
 }
 
 /* INPUT TABLA */
 
 .input-riesgo{
 
-    width:150px;
+    width:170px;
 
-    padding:8px;
+    padding:10px;
 
     border:none;
 
-    border-radius:10px;
+    border-radius:12px;
 
     text-align:center;
 
-    background:#1f2937;
+    background:#241b35;
 
     color:white;
+
+    outline:none;
 }
 
-/* GRAFICA */
+/* MINI BOTONES */
 
-.grafica{
+.btn-mini{
 
-    width:100%;
+    padding:10px 14px;
 
-    max-width:450px;
+    border:none;
 
-    margin:auto;
+    border-radius:12px;
 
-    margin-bottom:40px;
+    cursor:pointer;
+
+    color:white;
+
+    font-weight:600;
+
+    transition:0.3s;
+}
+
+.editar{
 
     background:
-    rgba(255,255,255,0.05);
+    linear-gradient(
+    135deg,
+    #f472b6,
+    #d946ef);
+}
 
-    padding:20px;
+.eliminar{
 
-    border-radius:25px;
+    background:
+    linear-gradient(
+    135deg,
+    #fb7185,
+    #e11d48);
+}
 
-    border:1px solid rgba(255,255,255,0.08);
+.btn-mini:hover{
+
+    transform:scale(1.08);
+}
+
+/* FOOTER */
+
+.footer{
+
+    text-align:center;
+
+    margin-top:40px;
+
+    opacity:0.7;
+
+    font-size:14px;
+
+    color:#fbcfe8;
 }
 
 </style>
 
 </head>
-
 <body>
 
-<h1>
-🚨 RodAegisGraph
-</h1>
+<div class="bg">
 
-<!-- BOTONES -->
+<div class="circle c1"></div>
+<div class="circle c2"></div>
+<div class="circle c3"></div>
+
+</div>
+
+<div class="container">
+
+<!-- HEADER -->
+
+<div class="header">
+
+<div class="logo">
+
+<h1>🚨 RodAegisGraph</h1>
+
+<p>Sistema inteligente de detección de fraude con Neo4j</p>
+
+</div>
 
 <div class="botones">
 
-<a href="/detectar">
-<button>
+<a href="/detectar" class="btn">
 🔍 Detectar fraude
-</button>
 </a>
 
-<a href="/reiniciar">
-<button>
-♻ Reiniciar sistema
-</button>
+<a href="/reiniciar" class="btn">
+♻ Reiniciar
 </a>
 
-<a href="/mapa">
-<button>
+<a href="/mapa" class="btn">
 🌍 Ver mapa
-</button>
 </a>
 
-<a href="/simular">
-<button>
-💸 Simular transacción
-</button>
+<a href="/simular" class="btn">
+💸 Simular
 </a>
+
+</div>
 
 </div>
 
@@ -345,28 +568,44 @@ tr:hover{
 <div class="dashboard">
 
 <div class="card">
+
 <h2>{{ clientes|length }}</h2>
-<p>Clientes</p>
+
+<p>Clientes registrados</p>
+
 </div>
 
 <div class="card">
+
 <h2>
 {{ clientes | selectattr('sospechoso') | list | length }}
 </h2>
-<p>Sospechosos</p>
+
+<p>Clientes sospechosos</p>
+
 </div>
 
 <div class="card">
+
 <h2>24/7</h2>
-<p>Monitoreo</p>
+
+<p>Monitoreo activo</p>
+
 </div>
 
 <div class="card">
+
 <h2>Neo4j</h2>
-<p>Base de datos</p>
+
+<p>Base de datos grafos</p>
+
 </div>
 
 </div>
+
+<!-- CONTENIDO -->
+
+<div class="content">
 
 <!-- GRAFICA -->
 
@@ -376,9 +615,11 @@ tr:hover{
 
 </div>
 
-<!-- FORM CREAR -->
+<!-- FORMULARIO -->
 
 <div class="form-crear">
+
+<h2>➕ Crear nuevo cliente</h2>
 
 <form action="/crear" method="POST">
 
@@ -389,11 +630,13 @@ placeholder="Nombre del cliente"
 required
 >
 
-<button type="submit">
-➕ Crear Cliente
+<button class="btn" type="submit">
+Crear cliente
 </button>
 
 </form>
+
+</div>
 
 </div>
 
@@ -405,13 +648,13 @@ required
 
 <tr>
 
-<th>👤 Nombre</th>
+<th>👤 Cliente</th>
 
 <th>⚠ Riesgo</th>
 
-<th>🚨 Sospechoso</th>
+<th>🚨 Estado</th>
 
-<th>✏ Editar nombre</th>
+<th>✏ Editar</th>
 
 <th>🗑 Eliminar</th>
 
@@ -421,16 +664,22 @@ required
 
 <tr class="{% if c.sospechoso %}sospechoso{% endif %}">
 
-<td>
-{{ c.nombre }}
-</td>
+<td>{{ c.nombre }}</td>
+
+<td>{{ c.riesgo }}</td>
 
 <td>
-{{ c.riesgo }}
-</td>
 
-<td>
-{{ c.sospechoso }}
+{% if c.sospechoso %}
+
+🚨 Sospechoso
+
+{% else %}
+
+✅ Normal
+
+{% endif %}
+
 </td>
 
 <td>
@@ -444,8 +693,8 @@ name="nombre"
 value="{{ c.nombre }}"
 >
 
-<button type="submit">
-✏
+<button class="btn-mini editar" type="submit">
+Guardar
 </button>
 
 </form>
@@ -456,8 +705,8 @@ value="{{ c.nombre }}"
 
 <a href="/eliminar/{{ c.id }}">
 
-<button>
-🗑
+<button class="btn-mini eliminar">
+Eliminar
 </button>
 
 </a>
@@ -469,6 +718,14 @@ value="{{ c.nombre }}"
 {% endfor %}
 
 </table>
+
+</div>
+
+<div class="footer">
+
+RodAegisGraph © 2026 | Flask + Neo4j + Chart.js
+
+</div>
 
 </div>
 
@@ -503,15 +760,22 @@ new Chart(ctx, {
                 sospechosos
             ],
 
-            borderWidth: 2
-
+            borderWidth:2
         }]
     },
 
     options: {
 
-        responsive: true
+        responsive:true,
 
+        plugins:{
+
+            legend:{
+                labels:{
+                    color:"white"
+                }
+            }
+        }
     }
 
 });
